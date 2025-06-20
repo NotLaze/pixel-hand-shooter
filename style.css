@@ -2,26 +2,65 @@ body {
   margin: 0;
   background-color: #000;
   overflow: hidden;
+}
+
+.gun {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
 }
 
-.hand {
-  width: 100px;
-  transition: transform 0.1s ease;
-  image-rendering: pixelated;
+.barrel {
+  width: 20px;
+  height: 40px;
+  background-color: #ccc;
+  box-shadow: 0 0 1px #fff;
 }
 
-.flash {
+.grip {
+  width: 30px;
+  height: 30px;
+  background-color: #888;
+  margin-top: 2px;
+  border-radius: 2px;
+}
+
+.ammo-container {
   position: absolute;
   top: 0;
   left: 0;
+  pointer-events: none;
+}
+
+.bullet {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background-color: white;
+  animation: shoot 0.5s linear forwards;
+}
+
+@keyframes shoot {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+}
+
+.flash {
+  position: fixed;
   width: 100vw;
   height: 100vh;
   background: white;
   opacity: 0;
+  transition: opacity 0.1s;
   pointer-events: none;
-  transition: opacity 0.1s ease-out;
 }
