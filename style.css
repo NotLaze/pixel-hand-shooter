@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  background-color: #000;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.hand {
+  width: 100px;
+  transition: transform 0.1s ease;
+  image-rendering: pixelated;
+}
+
+.flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease-out;
+}
