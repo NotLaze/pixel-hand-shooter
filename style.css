@@ -1,66 +1,68 @@
 body {
   margin: 0;
-  background-color: #000;
-  overflow: hidden;
-}
-
-.gun {
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
+  background-color: black;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.barrel {
-  width: 20px;
-  height: 40px;
-  background-color: #ccc;
-  box-shadow: 0 0 1px #fff;
+.hand {
+  position: relative;
+  width: 120px;
+  height: 80px;
+  transform: scale(2);
 }
 
-.grip {
-  width: 30px;
-  height: 30px;
-  background-color: #888;
-  margin-top: 2px;
-  border-radius: 2px;
-}
-
-.ammo-container {
+.finger {
   position: absolute;
-  top: 0;
-  left: 0;
-  pointer-events: none;
+  top: 10px;
+  left: 30px;
+  width: 60px;
+  height: 10px;
+  background-color: white;
+}
+
+.thumb {
+  position: absolute;
+  top: 25px;
+  left: 50px;
+  width: 10px;
+  height: 30px;
+  background-color: white;
+  transform: rotate(-30deg);
+  transform-origin: top left;
+}
+
+.palm {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 40px;
+  background-color: white;
 }
 
 .bullet {
   position: absolute;
-  width: 5px;
-  height: 10px;
-  background-color: white;
-  animation: shoot 0.5s linear forwards;
-}
-
-@keyframes shoot {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-100vh);
-  }
+  top: 10px;
+  left: 90px;
+  width: 6px;
+  height: 6px;
+  background: white;
+  display: none;
 }
 
 .flash {
   position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
   width: 100vw;
   height: 100vh;
-  background: white;
   opacity: 0;
-  transition: opacity 0.1s;
+  transition: opacity 0.1s ease-out;
   pointer-events: none;
 }
