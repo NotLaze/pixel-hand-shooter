@@ -1,23 +1,19 @@
+const bullet = document.getElementById("bullet");
 const flash = document.getElementById("flash");
-const ammoContainer = document.getElementById("ammoContainer");
-const gun = document.getElementById("gun");
 
 document.addEventListener("click", () => {
   // White flash
   flash.style.opacity = "1";
   setTimeout(() => flash.style.opacity = "0", 100);
 
-  // Create bullet
-  const bullet = document.createElement("div");
-  bullet.classList.add("bullet");
-
-  // Position bullet above barrel
-  const gunRect = gun.getBoundingClientRect();
-  bullet.style.left = `${gunRect.left + gunRect.width / 2 - 2}px`;
-  bullet.style.top = `${gunRect.top}px`;
-
-  ammoContainer.appendChild(bullet);
-
-  // Remove bullet after animation
-  bullet.addEventListener("animationend", () => bullet.remove());
+  // Animate bullet
+  bullet.style.display = "block";
+  bullet.style.transition = "transform 0.3s linear";
+  bullet.style.transform = "translateX(300px)";
+  
+  // Reset after animation
+  setTimeout(() => {
+    bullet.style.display = "none";
+    bullet.style.transform = "translateX(0)";
+  }, 300);
 });
